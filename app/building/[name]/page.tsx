@@ -44,7 +44,7 @@ const Detail =  ({
       animate="show"
       className="container flex mt-5 flex-col items-center"
     >
-      <motion.div variants={child}>
+      <motion.div variants={child} className="flex justify-center ">
         <CardDetail name={params.name.replace("_", " ")} className="mb-6" />
       </motion.div>
       <motion.div variants={child} className="w-10/12">
