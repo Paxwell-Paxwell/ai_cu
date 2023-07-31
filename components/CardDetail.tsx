@@ -62,9 +62,9 @@ export const CardDetail: FC<CardDetailProps> = ({
         <ErrorBoundary fallback={<div>some thing wrong</div>}>
           <Suspense fallback="loading">
             {toggle ? (
-              <LineChart className="w-[800px]" show={show} buildingId={name} />
+              <LineChart className=" w-[600px] lg:w-[800px]  " show={show} buildingId={name} />
             ) : (
-              <BarChart className="w-[800px]" show={show} buildingId={name} />
+              <BarChart className=" w-[600px] lg:w-[800px] " show={show} buildingId={name} />
             )}
         </Suspense>
         </ErrorBoundary>
