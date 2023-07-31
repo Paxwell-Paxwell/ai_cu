@@ -7,9 +7,7 @@ import { FC } from "react"
   return (
     <main className="container flex mt-5 flex-col items-center">
       <Skeleton className="w-10/12 h-[600px]"/>
-      <Skeleton className="w-10/12 h-[600px]"/>
-      <Skeleton className="w-10/12 h-[600px]"/>
-      <Skeleton className="w-10/12 h-[600px]"/>
+
     </main>
   )
 }
