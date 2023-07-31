@@ -1,5 +1,5 @@
 import Axios from 'axios';
-const baseUrl = 'http://ai-cu.paxrelpax.com';
+const baseUrl = 'https://backend-aicu.vercel.app';
 const axios = Axios.create({
   baseURL: baseUrl,
 });
