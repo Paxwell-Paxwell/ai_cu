@@ -11,13 +11,12 @@ export default function Home() {
           initial={{opacity:0}}
           animate={{opacity:1}}
           transition={{duration:0.75}}
-        className="w-11/12  flex flex-wrap gap-5 justify-center">
-          <CardEachBuilding name="Building 1" />
-          <CardEachBuilding name="Building 2" />
-          <CardEachBuilding name="Building 3" />
-          <CardEachBuilding name="Building 4" />
-          <CardEachBuilding name="Building 5" />
-          <CardEachBuilding name="Building 6" />
+        className="w-11/12  flex flex-wrap gap-5 justify-center items-center">
+          <CardEachBuilding name="cham4" />
+          <CardEachBuilding name="cham9" />
+          <CardEachBuilding name="chul" />
+          <CardEachBuilding name="sport" />
+          <CardEachBuilding name="witya" />
         </motion.div>
       </div>
     </main>
