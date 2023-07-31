@@ -3,8 +3,6 @@ import CardEachBuilding from "@/components/CardEachBuilding";
 import {motion} from "framer-motion"
 
 
-
-
 export default function Home() {
   return (
     <main>

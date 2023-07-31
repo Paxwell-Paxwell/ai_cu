@@ -6,6 +6,7 @@ import columnsPrediction, {
 } from "@/components/viewdata/columsPrediction";
 import { Suspense } from "react";
 import { DataTablePrediction } from "@/components/viewdata/data-table-prediction";
+import {wait} from "@/lib/wait";
 
 let parent = {
   show: {
@@ -28,13 +29,14 @@ let child = {
   },
 };
 
-const Detail = ({
+const Detail =  ({
   params,
 }: {
   params: {
     name: string;
   };
 }) => {
+ 
   return (
     <motion.main
       variants={parent}
