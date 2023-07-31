@@ -69,7 +69,7 @@ export const LineChart: FC<LineChartProps> = ({
   show = "hourly",
   buildingId,
 }) => {
-  const { data } = useSWR(`building//${buildingId}/${show}`);
+  const { data } = useSWR(`building/${buildingId}/${show}`);
   
   const [m] = useAtom(month);
   const [d] = useAtom(day);

@@ -188,7 +188,7 @@ export const DataTablePrediction: FC<PredictionTableProps> = ({
   frequency = "hourly",
   buildingId,
 }) => {
-  const { data } = useSWR(`building//${buildingId}/${frequency}`);
+  const { data } = useSWR(`building/${buildingId}/${frequency}`);
   const dataset = useMemo(() => {
     let newdata: PredictionEachBuilding[] = data?.map((item: Prediction) => {
       return {
