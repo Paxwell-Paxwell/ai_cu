@@ -25,39 +25,7 @@ ChartJS.register(
 );
 import {  useAtom } from "jotai";
 import useSWR from "swr";
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: "Predicted",
-    },
-    tooltip: {
-      callbacks: {
-        label: function (context: any) {
-          let label = context.dataset.label || "";
 
-          if (label) {
-            label += ": ";
-          }
-          if (context.parsed.y !== null) {
-            if(context.dataset.label==="Peak Power"){
-              label +=
-                new Intl.NumberFormat("en-US").format(context.parsed.y) + " kw";
-              }else{
-                label +=
-                new Intl.NumberFormat("en-US").format(context.parsed.y) + " kwh";
-              }
-          }
-          return label;
-        },
-      },
-    },
-  },
-};
 import { Prediction } from "./models/predictions";
 interface LineChartProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -101,6 +69,50 @@ export const LineChart: FC<LineChartProps> = ({
       ],
     };
   }, [show, m, d, h,data]);
+  const options = useMemo(() => {
+    const option = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top' as const,
+        },
+        title: {
+          display: true,
+          text: "Predicted",
+        },
+        tooltip: {
+          
+          callbacks: {
+            title: function (context: any) {
+              // console.log(context[0].dataIndex);
+              let dataIndex = context[0].dataIndex || "";
+              let title = `Next ${dataIndex} ${show==="hourly"?"hours":show==="daily"?"days":"months"}`
+              return title;
+            },
+            label: function (context: any) {
+              let label = context.dataset.label || "";
+    
+              if (label) {
+                label += ": ";
+              }
+              if (context.parsed.y !== null) {
+                if(context.dataset.label==="Peak Power"){
+                  label +=
+                    new Intl.NumberFormat("en-US").format(context.parsed.y) + " kw";
+                  }else{
+                    label +=
+                    new Intl.NumberFormat("en-US").format(context.parsed.y) + " kwh";
+                  }
+              }
+              return label;
+            },
+          },
+        },
+      },
+    };
+    return option;
+  }
+  , [show])
   return (
     <div className={className}>   
         <Line options={options} data={dataset} />
