@@ -192,7 +192,7 @@ export const DataTablePrediction: FC<PredictionTableProps> = ({
   const dataset = useMemo(() => {
     let newdata: PredictionEachBuilding[] = data?.map((item: Prediction) => {
       return {
-        date: DateTime.fromMillis(item.date).toLocaleString(DateTime.DATE_MED),
+        date: DateTime.fromMillis(item.date).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS),
         energy: item.energy,
         peakPower: item.peakPower,
       };
@@ -202,7 +202,7 @@ export const DataTablePrediction: FC<PredictionTableProps> = ({
 
   return (
       <DataTable columns={columns} data={
-        dataset===undefined?((dataset as []).length===0?samplePrediction:dataset):samplePrediction
+        dataset ?? samplePrediction
       } />
   );
       
