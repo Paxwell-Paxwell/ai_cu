@@ -94,7 +94,7 @@ export const LineChart: FC<LineChartProps> = ({
         },
         {
           label: "Energy",
-          data: data?.map((d:Prediction)=>d.peakPower),
+          data: data?.map((d:Prediction)=>d.energy),
           borderColor: "rgb(153, 255, 204)",
           backgroundColor: "rgba(153, 255, 204, 0.5)"
         },
